@@ -55,7 +55,7 @@ def runOneCell(position, maskFileName, folder, rs):
     #maskFileNames = [maskFileName]
 
     imgName = folder+'/stackGFP.tif'
-    print('imgName',imgName)
+    #print('imgName',imgName)
     img = mpimg.imread(imgName)
     #maxR = 1100
 
@@ -83,8 +83,11 @@ def runOneCell(position, maskFileName, folder, rs):
     #cellIds.append(cid)
     #print('mask path',folder+"/"+maskFileName)
     mask = mpimg.imread(folder+"/"+maskFileName)
+    if mask.ndim == 3: mask=mask[:,:,0]
+    #print('mask',folder+"/"+maskFileName,mask.shape)
     #plt.figure()
     #plt.imshow(mask)
+    #plt.show()
 
     celli = img * (mask>0)
     #plt.figure()
