@@ -83,7 +83,7 @@ Furthermore, it generates two graphs for each cell in the image folder:
 
 <p align="center">
 <img src="./Circ_cell1.png" height="50%" width="50%" >
-<img src="./Graph_cell1.png" height="50%" width="50%" >
+<img src="./Graph_cell1.png" height="45%" width="45%" >
 </p>
 
 
