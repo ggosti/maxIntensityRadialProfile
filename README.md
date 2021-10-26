@@ -79,8 +79,9 @@ python radialProfile.py
 The file will generate three files in the main folder: `profiles.txt` containts the radial profiles for each cell, `profilesSmooth.txt` contiants the smoothed profiles, and `eccSols.txt` containts the solidity and eccentricity of the cells.
 `profiles.txt` and `profilesSmooth.txt` are organized as tab separated values tables. The first row is the header, each other row corresponds to a different cell. The first 3 collumns identify respectively the experiment, the image, and the cell. The other colums in the header identify the radial profile radius, and in the cell rows the cooresponding values.
 
-
-![plot](./Circ_cell1.pdf
+Furthermore, it generates two graphs for each cell in the image folder:
+<a href="url"><img src="./Circ_cell1.png" align="left" height="50%" width="50%" ></a>
+<a href="url"><img src="./Graph_cell1.png" align="left" height="50%" width="50%" ></a>
 
 ### Requirements
 - matplotlib
