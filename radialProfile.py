@@ -135,13 +135,13 @@ def runOneCell(position, maskFileName, folder, rs):
         div+=1
 
     #Questa parte adesso non serve più?#############
-    txt="Radius (um)\tIntensity\n"
-    for i in range(len(tabAvgMax)):
-        a=round(tabRsAvgMax[i] * 2) / 2
-        b=round(tabAvgMax[i] * 2) / 2
-        txt+=str(a)+"\t"+str(b)+"\n"
-    with open(folder+"/AvgInt_"+imgName.replace(folder+"/", "") + "_" + maskFileName.replace(".tif", "")+".xls", "w+") as f:
-        f.write(txt)
+    #txt="Radius (um)\tIntensity\n"
+    #for i in range(len(tabAvgMax)):
+    #    a=round(tabRsAvgMax[i] * 2) / 2
+    #    b=round(tabAvgMax[i] * 2) / 2
+    #    txt+=str(a)+"\t"+str(b)+"\n"
+    #with open(folder+"/AvgInt_"+imgName.replace(folder+"/", "") + "_" + maskFileName.replace(".tif", "")+".xls", "w+") as f:
+    #    f.write(txt)
     #################################################
 
     print("The radius with maximum intensity is:", maxRad, "microns (" +str(maxRad/0.065)+"pixels)")
@@ -159,7 +159,7 @@ def runOneCell(position, maskFileName, folder, rs):
     ax.legend()
     ax.set_xlabel(r"Radius ($\mu m$)")
     ax.set_ylabel("Fluorescence Intensity (a.u.)")
-    plt.savefig(folder+"/Graph_" + imgName.replace(folder+"/", "") + "_" + maskFileName.replace(".tif", "") + ".pdf", dpi=600)
+    plt.savefig(folder+"/Graph_"+name+".pdf", dpi=600)
 
     fig, ax = plt.subplots()
     #plt.title("")
@@ -172,22 +172,23 @@ def runOneCell(position, maskFileName, folder, rs):
     print('min pixel ',maskFileName ,celli[mask>0].min())
     print('mean int',maskFileName,celli[mask>0].mean())
 
-    for rc in range(0,1100,77):
+    for rc in range(0,2100,77):
         cir = plt.Circle((x0, y0), rc, fill=False, color='b')
         ax.add_artist(cir)
 
     cir = plt.Circle((x0, y0), maxRad/0.065, fill=False, color='r')
     ax.add_artist(cir)
 
-    x1 = cx + np.cos(ori-PI / 2.) * 2 * np.sqrt(l2)
-    y1 = cy - np.sin(ori-PI / 2.) * 2 * np.sqrt(l2)
-    x2 = cx - np.sin(ori-PI / 2.) * 2 * np.sqrt(l1)
-    y2 = cy - np.cos(ori-PI / 2.) * 2 * np.sqrt(l1)
-    ax.plot((cx, x1), (cy, y1), '-r', linewidth=2.5)
-    ax.plot((cx, x2), (cy, y2), '-r', linewidth=2.5)
+    #draw orientation
+    #x1 = cx + np.cos(ori-PI / 2.) * 2 * np.sqrt(l2)
+    #y1 = cy - np.sin(ori-PI / 2.) * 2 * np.sqrt(l2)
+    #x2 = cx - np.sin(ori-PI / 2.) * 2 * np.sqrt(l1)
+    #y2 = cy - np.cos(ori-PI / 2.) * 2 * np.sqrt(l1)
+    #ax.plot((cx, x1), (cy, y1), '-r', linewidth=2.5)
+    #ax.plot((cx, x2), (cy, y2), '-r', linewidth=2.5)
     ax.plot(cx, cy, '.g', markersize=15)
 
-    plt.savefig(folder+"/Circ_"+imgName.replace(folder+"/", "").replace("GFP.tif", "")+"_"+maskFileName.replace(".tif", "")+".pdf", dpi=600)
+    plt.savefig(folder+"/Circ_"+name+".pdf", dpi=600)
     #plt.show()
     #plt.close()
     plt.close('all')
