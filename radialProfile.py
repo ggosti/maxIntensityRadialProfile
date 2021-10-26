@@ -54,7 +54,7 @@ def runOneCell(position, maskFileName, folder, rs):
     #positions = [[position[0],position[1]]]
     #maskFileNames = [maskFileName]
 
-    imgName = folder+'/stackGFP.tif'
+    imgName = folder+'/image.tif'
     #print('imgName',imgName)
     img = mpimg.imread(imgName)
     #maxR = 1100
