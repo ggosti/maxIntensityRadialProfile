@@ -159,7 +159,7 @@ def runOneCell(position, maskFileName, folder, rs):
     ax.legend()
     ax.set_xlabel(r"Radius ($\mu m$)")
     ax.set_ylabel("Fluorescence Intensity (a.u.)")
-    plt.savefig(folder+"/Graph_"+name+".pdf", dpi=600)
+    plt.savefig(folder+"/Graph_"+name+".png", dpi=600)
 
     fig, ax = plt.subplots()
     #plt.title("")
@@ -188,7 +188,7 @@ def runOneCell(position, maskFileName, folder, rs):
     #ax.plot((cx, x2), (cy, y2), '-r', linewidth=2.5)
     ax.plot(cx, cy, '.g', markersize=15)
 
-    plt.savefig(folder+"/Circ_"+name+".pdf", dpi=600)
+    plt.savefig(folder+"/Circ_"+name+".png", dpi=600)
     #plt.show()
     #plt.close()
     plt.close('all')
