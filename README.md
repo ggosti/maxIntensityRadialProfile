@@ -80,8 +80,12 @@ The file will generate three files in the main folder: `profiles.txt` containts 
 `profiles.txt` and `profilesSmooth.txt` are organized as tab separated values tables. The first row is the header, each other row corresponds to a different cell. The first 3 collumns identify respectively the experiment, the image, and the cell. The other colums in the header identify the radial profile radius, and in the cell rows the cooresponding values.
 
 Furthermore, it generates two graphs for each cell in the image folder:
-<a href="url"><img src="./Circ_cell1.png" align="left" height="50%" width="50%" ></a>
-<a href="url"><img src="./Graph_cell1.png" align="left" height="50%" width="50%" ></a>
+
+<p align="center">
+<img src="./Circ_cell1.png" height="50%" width="50%" >
+<img src="./Graph_cell1.png" height="50%" width="50%" >
+</p>
+
 
 ### Requirements
 - matplotlib
