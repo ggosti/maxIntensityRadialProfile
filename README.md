@@ -1,5 +1,6 @@
 # radialProfile
-Python script for computing the radial profile of cells from pictures. 
+Python script for computing the maximum intensity radial profile of cells from pictures.
+The maximum intensity radial profile is given by the pixel with the highes intensity for each given distance from a reviously defined center.
 It can retrieve the radial profile of more than one cell in a picture, but it requires a cell mask for each cell, and a file with the redialProfile origin coordinates to be defined in advance.
 
 The `radialProfile.py` script assumes that all required files are organized in folders in a specific way:
@@ -78,6 +79,8 @@ python radialProfile.py
 The file will generate three files in the main folder: `profiles.txt` containts the radial profiles for each cell, `profilesSmooth.txt` contiants the smoothed profiles, and `eccSols.txt` containts the solidity and eccentricity of the cells.
 `profiles.txt` and `profilesSmooth.txt` are organized as tab separated values tables. The first row is the header, each other row corresponds to a different cell. The first 3 collumns identify respectively the experiment, the image, and the cell. The other colums in the header identify the radial profile radius, and in the cell rows the cooresponding values.
 
+
+![plot](./Circ_cell1.pdf
 
 ### Requirements
 - matplotlib
