@@ -6,6 +6,8 @@ from skimage.measure import moments,moments_central,inertia_tensor,inertia_tenso
 from skimage.filters import threshold_otsu
 import os
 
+
+# computes the radial profile of mean,max,min
 def radialMean(im,x0,y0,h,w,rs):
     yy,xx=np.mgrid[0:h,0:w]
     rr= np.sqrt((xx-x0)**2+(yy-y0)**2)
@@ -24,9 +26,10 @@ def radialMean(im,x0,y0,h,w,rs):
         means.append(a.mean())
         maxs.append(a.max())
         mins.append(a.min())
-    #rs = np.array(rs) * 0.065
+    #rs = np.array(rs) * pixelSize
     return means,maxs,mins
 
+# computes the cell orientation
 def orientation(inertia_tensor):
     a, b, b, c = inertia_tensor.flat
     if a - c == 0:
@@ -37,6 +40,7 @@ def orientation(inertia_tensor):
     else:
         return 0.5 * atan2(-2 * b, c - a)
 
+# computes image covariance and eigenvectors
 def covImg(im):
     M = moments(im)
     cx,cy = (M[1, 0] / M[0, 0], M[0, 1] / M[0, 0])
@@ -50,6 +54,7 @@ def covImg(im):
     ori = orientation(cov)
     return cx,cy,cov,l1,l2,w,ec,ori
 
+# computes profile and other measures for a cell given a mask of the cell
 def runOneCell(position, maskFileName, folder, rs):
     #positions = [[position[0],position[1]]]
     #maskFileNames = [maskFileName]
@@ -144,7 +149,7 @@ def runOneCell(position, maskFileName, folder, rs):
     #    f.write(txt)
     #################################################
 
-    print("The radius with maximum intensity is:", maxRad, "microns (" +str(maxRad/0.065)+"pixels)")
+    print("The radius with maximum intensity is:", maxRad, "microns (" +str(maxRad/pixelSize)+"pixels)")
 
     fig, ax = plt.subplots()
     ax.set_title(' '.join(imgName.split('/')[:2])+' ' +maskFileName)
@@ -176,7 +181,7 @@ def runOneCell(position, maskFileName, folder, rs):
         cir = plt.Circle((x0, y0), rc, fill=False, color='b')
         ax.add_artist(cir)
 
-    cir = plt.Circle((x0, y0), maxRad/0.065, fill=False, color='r')
+    cir = plt.Circle((x0, y0), maxRad/pixelSize, fill=False, color='r')
     ax.add_artist(cir)
 
     #draw orientation
@@ -202,14 +207,15 @@ if __name__ == "__main__":
         f.write('day \t folder \t num \t eccentricity \t solidity \n')
 
     rmax = 1100
-    rs = np.arange(rmax+1) * 0.065
+    pixelSize = 0.065 #size of the pixel in micons
+    rs = np.arange(rmax+1) * pixelSize
     with open("profiles.txt", "w") as f:
         f.write('day \t folder \t num')
         for r in rs:
             f.write('\t' + '{0:.3f}'.format(r))
         f.write('\n')
 
-    rsSmooth = np.arange(0.5,(rmax + 1)*0.065,0.5)
+    rsSmooth = np.arange(0.5,(rmax + 1)*pixelSize,0.5)
     with open("profilesSmooth.txt", "w") as f:
         f.write('day \t folder \t num')
         for r in rsSmooth:
