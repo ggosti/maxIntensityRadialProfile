@@ -1,7 +1,16 @@
 # radialProfile
 Python script for computing the maximum intensity radial profile of cells from pictures.
-The maximum intensity radial profile is given by the pixel with the highes intensity for each given distance from a reviously defined center.
-It can retrieve the radial profile of more than one cell in a picture, but it requires a cell mask for each cell, and a file with the redialProfile origin coordinates to be defined in advance.
+The maximum intensity radial profile is a profile plot of the maximum intenisty pixel among concentric circles as a function of distance from a center in the image.
+This script can retrive the radial profile of more than one cell in a picture, but it requires a cell mask and a center for each cell.
+
+The `radialProfile.py` script generates two pictures for each cell in the image folder:
+
+<p align="center">
+<img src="./Circ_cell1.png" height="50%" width="50%" >
+<img src="./Graph_cell1.png" height="45%" width="45%" >
+</p>
+
+The first is a rapresentation of the center and the concentric circles on which the radial profile is computed overlying the original image. The second is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron.
 
 The `radialProfile.py` script assumes that all required files are organized in folders in a specific way:
 ```
@@ -79,12 +88,7 @@ python radialProfile.py
 The file will generate three files in the main folder: `profiles.txt` containts the radial profiles for each cell, `profilesSmooth.txt` contiants the smoothed profiles, and `eccSols.txt` containts the solidity and eccentricity of the cells.
 `profiles.txt` and `profilesSmooth.txt` are organized as tab separated values tables. The first row is the header, each other row corresponds to a different cell. The first 3 collumns identify respectively the experiment, the image, and the cell. The other colums in the header identify the radial profile radius, and in the cell rows the cooresponding values.
 
-Furthermore, it generates two graphs for each cell in the image folder:
 
-<p align="center">
-<img src="./Circ_cell1.png" height="50%" width="50%" >
-<img src="./Graph_cell1.png" height="45%" width="45%" >
-</p>
 
 
 ### Requirements
