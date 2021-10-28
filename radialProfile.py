@@ -206,7 +206,7 @@ if __name__ == "__main__":
     with open("eccSols.txt", "w") as f:
         f.write('day \t folder \t num \t eccentricity \t solidity \n')
 
-    rmax = 1100
+    rmax = 3300
     pixelSize = 0.065 #size of the pixel in micons
     rs = np.arange(rmax+1) * pixelSize
     with open("profiles.txt", "w") as f:
@@ -230,7 +230,10 @@ if __name__ == "__main__":
         dicPos={}
         with open(day+"/coordinates.txt", "r") as f:
             for l in f:
-                (folder, name, posx, posy) = l.replace("\n", "").split("\t")
+                try:
+                    (folder, name, posx, posy) = l.replace("\n", "").split("\t")
+                except ValueError:
+                    print("Oops! There is a problem with the coordinates.txt file.  Try and fix it...")
                 posx, posy = float(posx), float(posy)
                 try:
                     dicPos[folder][name]=[posx, posy]
