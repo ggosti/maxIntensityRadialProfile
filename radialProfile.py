@@ -207,7 +207,7 @@ if __name__ == "__main__":
         f.write('day \t folder \t num \t eccentricity \t solidity \n')
 
     rmax = 3300
-    pixelSize = 0.065 #size of the pixel in micons
+    pixelSize = 0.065 #size of the pixel in microns
     rs = np.arange(rmax+1) * pixelSize
     with open("profiles.txt", "w") as f:
         f.write('day \t folder \t num')
