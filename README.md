@@ -10,7 +10,7 @@ The `radialProfile.py` script generates two pictures for each cell in the image 
 <img src="./Graph_cell1.png" height="45%" width="45%" >
 </p>
 
-The first is a rapresentation of the center and the concentric circles on which the radial profile is computed overlying the original image. The second is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron. TO change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in micons`.
+The first figure shows concentric blue circles overlaying the original image. The circles have evenly spaced radiuses with a step of 5 microns. The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel. The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron. To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
 
 The `radialProfile.py` script assumes that all required files are organized in folders in a specific way:
 ```
