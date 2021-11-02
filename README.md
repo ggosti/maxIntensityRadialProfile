@@ -10,7 +10,7 @@ The `radialProfile.py` script generates two pictures for each cell in the image 
 <img src="./Graph_cell1.png" height="45%" width="45%" >
 </p>
 
-The first figure shows concentric blue circles overlaying the original image. The circles have evenly spaced radiuses with a step of 5 microns. The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel. The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron. To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
+The first figure shows concentric blue circles overlaying the original image. The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel. The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron. To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
 
 The `radialProfile.py` script assumes that all required files are organized in folders in a specific way:
 ```
@@ -32,7 +32,7 @@ radialProfile/
 │   |   │   cell1.tif
 │   |   │   cell2.tif
 │   |   │   ...
-|   |....
+|   └───....
 |
 └───Exp2/
 │   │   coordinates.txt
@@ -43,23 +43,34 @@ radialProfile/
 │   |   │   cell2.tif
 │   |   │   cell3.tif
 │   |   │   ...
-|   |....
+|   └───....
+└───....
 ```
 
-To work the `radialProfile.py` script assumes that it is located in the main folder `radialProfile/`. 
-That the images with the cells `image.tif` are saved in a folder that refers to the specific acquired region, e.g. `Image1/`,`Image2/`, or other. 
-The folder with the acquired region is itself placed in a folder that refers to the relative experiment, e.g. `Exp1/`. 
+In order for it to work, the `radialProfile.py` script must be located in a main folder, e.g. radialProfile/.
+The `radialProfile.py` script assumes that you are analysing multiple acquired regions of a
+sample, each acquired image has to be saved as image.tif in a dedicated folder e.g. `Image1/`,`Image2/`, or other.
+Each folder that contains an acquired region must be itself placed in a folder that refers to the related sample, e.g. `Exp1/`.
 It is important to notice that the image file name must be always `image.tif`. 
-In future implementation we may want to make this requirement less strict. 
-The cell masks that identify the different cells in the image must be saved as tiff images with the file name `cell1/`,`cell2/`, and so on. 
-The cell centers which define the radial profile origin must be saved in a file `coordinates.txt`.
-Which is a tab-separated-values file composed of four columns, the first column indicates the image folder, the second column indicates the cell mask name, and the third and fourth columns indicate the x and y coordinates of the cell center for the radialPr profile calculation. Here is an example for `coordinates.txt`:
+In a further implementation, we may want to make this requirement less strict.
+The cell masks that identify different cells in the same acquired region must be saved as tiff images 
+with the file name `cell1.tif`, `cell2.tif`, and so on.
+Be aware that the cell masks tiff files must be saved in
+the same folder as the image.tif files to which they have to be applied.
+For the script to work correctly, in each sample folder there has to be a txt file named
+coordinates.txt. It is recommended to write it as a tab-separated-values file composed of
+four columns: the first column must indicate the image folder names, the second column
+must contain the cell mask names, and the third and fourth columns must indicate the x
+and y coordinates which will define the centers for the radial profile calculation. These x
+and y coordinates will therefore define the radial profile origin for each cell.
+
+Here is an example for `coordinates.txt`:
 ```
-M0_2	cell1	615	750
-M0_2	cell2	1251	915
-M0_2	cell3	495	1194
-M0_4	cell2	626	402
-M0_4	cell3	972	1158
+Image1	cell1	615	750
+Image1	cell2	1251	915
+Image1	cell3	495	1194
+Image2	cell2	626	402
+Image2	cell3	972	1158
 ```
 The git repository also contains an example of two images taken in a single experiment that can be used to test the script. The directory organization of the example is:
 ```
@@ -68,18 +79,18 @@ radialProfile/
 │   radialProfile.py  
 │
 └───apr19/
-│   │   coordinates.txt
-│   │
-│   └───M0_2/
-│   |   │   image.tif
-│   |   │   cell1.tif
-│   |   │   cell2.tif
-│   |   │   cell3.tif
-│   |
-│   └───M0_4/
-│   |   │   image.tif
-│   |   │   cell2.tif
-│   |   │   cell3.tif
+    │   coordinates.txt
+    │
+    └───M0_2/
+    |   │   image.tif
+    |   │   cell1.tif
+    |   │   cell2.tif
+    |   │   cell3.tif
+    |
+    └───M0_4/
+        │   image.tif
+        │   cell2.tif
+        │   cell3.tif
 ```
 To run the script simply execute:
 ```
