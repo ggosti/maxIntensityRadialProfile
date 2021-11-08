@@ -10,7 +10,12 @@ The `radialProfile.py` script generates two pictures for each cell in the image 
 <img src="./Graph_cell1.png" height="45%" width="45%" >
 </p>
 
-The first figure shows concentric blue circles overlaying the original image. The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel. The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron. To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
+The first figure shows concentric blue circles overlaying the original image, having their center located on the center of the radial profile calculation.
+Assuming a pixel size of 0.065 micron and defining `n` as the number of circles from the center of the image,
+the concentric blue circles have a radius `r=n*5 micron`. 
+The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel.
+The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron.
+To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
 
 The `radialProfile.py` script assumes that all required files are organized in folders in a specific way:
 ```
@@ -47,7 +52,7 @@ radialProfile/
 └───....
 ```
 
-In order for it to work, the `radialProfile.py` script must be located in a main folder, e.g. radialProfile/.
+In order for it to work, the `radialProfile.py` script must be located in a main folder, e.g. `radialProfile/`.
 The `radialProfile.py` script assumes that you are analysing multiple acquired regions of a
 sample, each acquired image has to be saved as `image.tif` in a dedicated folder e.g. `Image1/`,`Image2/`, or other.
 Each folder that contains an acquired region must be itself placed in a folder that refers to the related sample, e.g. `Exp1/`.
