@@ -1,4 +1,4 @@
-# radialProfile
+# Max Intensity RadialProfile
 Python script for computing the maximum intensity radial profile of cells from pictures.
 The maximum intensity radial profile is a profile plot of the maximum intensity pixel among concentric circles as a function of distance from a center in the image.
 This script can retrive the radial profile of more than one cell in a picture, but it requires a cell mask and a center for each cell.
