@@ -183,6 +183,8 @@ def runOneCell(position, maskFileName, folder, rs):
 
     cir = plt.Circle((x0, y0), maxRad/pixelSize, fill=False, color='r')
     ax.add_artist(cir)
+    
+    ax.plot(x0, y0, '.b', markersize=5)
 
     #draw orientation
     #x1 = cx + np.cos(ori-PI / 2.) * 2 * np.sqrt(l2)
@@ -191,7 +193,7 @@ def runOneCell(position, maskFileName, folder, rs):
     #y2 = cy - np.cos(ori-PI / 2.) * 2 * np.sqrt(l1)
     #ax.plot((cx, x1), (cy, y1), '-r', linewidth=2.5)
     #ax.plot((cx, x2), (cy, y2), '-r', linewidth=2.5)
-    ax.plot(cx, cy, '.g', markersize=15)
+    #ax.plot(cx, cy, '.g', markersize=15)
 
     plt.savefig(folder+"/Circ_"+name+".png", dpi=600)
     #plt.show()
