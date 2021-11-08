@@ -12,8 +12,9 @@ The `radialProfile.py` script generates two pictures for each cell in the image 
 
 The first figure shows concentric blue circles overlaying the original image, having their center located on the center of the radial profile calculation.
 Assuming a pixel size of 0.065 micron and defining `n` as the number of circles from the center of the image,
-the concentric blue circles have a radius `r=n*5 micron`. 
-The green dot indicated the center of the circles and on which the radial profile is computed. The red circle indicates the circle with the most intense pixel.
+the concentric blue circles have a radius `r=n*5 micron`.
+The green dot indicates the center of the circles and on which the radial profile is computed.
+The red circle indicates the circle with the most intense pixel.
 The second figure is the maximum intensity radial profile plot computed assuming a pixel size of 0.065 micron.
 To change the pixel size value change line 210 `pixelSize = 0.065 #size of the pixel in microns`.
 
