@@ -21,11 +21,13 @@ def radialMean(im,x0,y0,h,w,rs):
     #plt.show()
 
     for r in range(len(rs)):
+        #print(r)
         mask = (np.uint32(rr)==r)
         a=im[mask]
-        means.append(a.mean())
-        maxs.append(a.max())
-        mins.append(a.min())
+        if len(a)>0:
+            means.append(a.mean())
+            maxs.append(a.max())
+            mins.append(a.min())
     #rs = np.array(rs) * pixelSize
     return means,maxs,mins
 
@@ -153,7 +155,7 @@ def runOneCell(position, maskFileName, folder, rs):
 
     fig, ax = plt.subplots()
     ax.set_title(' '.join(imgName.split('/')[:2])+' ' +maskFileName)
-    ax.plot(np.array(rs),maxs,label='max',linewidth=1)
+    ax.plot(np.array(rs)[:len(maxs)],maxs,label='max',linewidth=1)
     ax.plot(maxRad, maxs[maxs.index(max(maxs))], "or", label="(d=%.2f $\mu m$ ; I=%.2f)" %(maxRad,max(maxs)), markersize=6)
     ax.plot(tabRsAvgMax, tabAvgMax, linewidth=2)
     #plt.plot(np.array(rs),means,label='mean',linewidth=0.7)
@@ -208,7 +210,7 @@ if __name__ == "__main__":
     with open("eccSols.txt", "w") as f:
         f.write('day \t folder \t num \t eccentricity \t solidity \n')
 
-    rmax = 3300
+    rmax = 2000
     pixelSize = 0.065 #size of the pixel in microns
     rs = np.arange(rmax+1) * pixelSize
     with open("profiles.txt", "w") as f:
