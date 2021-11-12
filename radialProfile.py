@@ -43,18 +43,18 @@ def orientation(inertia_tensor):
         return 0.5 * atan2(-2 * b, c - a)
 
 # computes image covariance and eigenvectors
-def covImg(im):
-    M = moments(im)
-    cx,cy = (M[1, 0] / M[0, 0], M[0, 1] / M[0, 0])
-    mu = moments_central(im,[cx,cy])
-    cov = inertia_tensor(im,mu)
-    eigvals,w = np.linalg.eigh(cov)
-    l1,l2 = np.clip(eigvals, 0, None, out=eigvals)
-    #lmin = min(l1,l2)
-    #lmax = max(l1,l2)
-    ec = np.sqrt(1 - l1 /l2)
-    ori = orientation(cov)
-    return cx,cy,cov,l1,l2,w,ec,ori
+#def covImg(im):
+#    M = moments(im)
+#    cx,cy = (M[1, 0] / M[0, 0], M[0, 1] / M[0, 0])
+#    mu = moments_central(im,[cx,cy])
+#    cov = inertia_tensor(im,mu)
+#    eigvals,w = np.linalg.eigh(cov)
+#    l1,l2 = np.clip(eigvals, 0, None, out=eigvals)
+#    #lmin = min(l1,l2)
+#    #lmax = max(l1,l2)
+#    ec = np.sqrt(1 - l1 /l2)
+#    ori = orientation(cov)
+#    return cx,cy,cov,l1,l2,w,ec,ori
 
 # computes profile and other measures for a cell given a mask of the cell
 def runOneCell(position, maskFileName, folder, rs):
@@ -103,23 +103,23 @@ def runOneCell(position, maskFileName, folder, rs):
 
     x0, y0 = position
     means,maxs,mins = radialMean(celli,x0,y0,h,w,rs)
-    cy,cx,cov,l1,l2,w,ec,ori = covImg(celli)
-    props = regionprops(np.uint(celli>0),celli)
-    f,[ax1,ax2,ax3]=plt.subplots(1,3,sharex=True,sharey=True)
-    ax1.set_title(maskFileName[:-4])
-    ax2.imshow(props[0].image)
-    ax1.imshow(props[0].intensity_image)
-    ax3.imshow(props[0].convex_image)
-    sol=np.sum(props[0].image)/np.sum(props[0].convex_image)
+    #cy,cx,cov,l1,l2,w,ec,ori = covImg(celli)
+    #props = regionprops(np.uint(celli>0),celli)
+    #f,[ax1,ax2,ax3]=plt.subplots(1,3,sharex=True,sharey=True)
+    #ax1.set_title(maskFileName[:-4])
+    #ax2.imshow(props[0].image)
+    #ax1.imshow(props[0].intensity_image)
+    #ax3.imshow(props[0].convex_image)
+    #sol=np.sum(props[0].image)/np.sum(props[0].convex_image)
     #print('props sum intensity',props[0].mean_intensity*props[0].area,np.sum(celli))
     #print('props',props[0].weighted_centroid)
     #print('props',props[0].inertia_tensor)
     #print('cov',cov)
     #print('eiv',l1,l2,w)
-    print('ec',ec)
-    print('cy,cx',cy,cx)
+    #print('ec',ec)
+    #print('cy,cx',cy,cx)
     print('y0,x0',y0,x0)
-    print('sol',np.sum(props[0].image),np.sum(props[0].convex_image),sol)
+    #print('sol',np.sum(props[0].image),np.sum(props[0].convex_image),sol)
     #eccs.append(ec)
     #sols.append(sol)
     #profiles.append(maxs)
@@ -202,13 +202,13 @@ def runOneCell(position, maskFileName, folder, rs):
     #plt.close()
     plt.close('all')
 
-    return name, ec, sol,maxs, tabAvgMax, tabRsAvgMax
+    return name, maxs, tabAvgMax, tabRsAvgMax
 
 
 if __name__ == "__main__":
 
-    with open("eccSols.txt", "w") as f:
-        f.write('day \t folder \t num \t eccentricity \t solidity \n')
+    #with open("eccSols.txt", "w") as f:
+    #    f.write('day \t folder \t num \t eccentricity \t solidity \n')
 
     rmax = 2000
     pixelSize = 0.065 #size of the pixel in microns
@@ -266,14 +266,14 @@ if __name__ == "__main__":
                     continue
 
                 #print('path to get stuff', folder, file)
-                name,ecc,sol, maxs, profilesSmooth, profilesSmoothRs = runOneCell(dicPos[folder][file], file+".tif", day+'/'+folder, rs)
+                name, maxs, profilesSmooth, profilesSmoothRs = runOneCell(dicPos[folder][file], file+".tif", day+'/'+folder, rs)
 
                 #print('rsSmooth')
                 #print(rsSmooth)
                 #print(profilesSmoothRs)
-                with open("eccSols.txt", "a") as f:
-                    #print(day,name,ecc,sol)
-                    f.write(day+'\t'+folder+'\t'+str(name)+'\t'+str(ecc)+'\t'+str(sol)+'\n')
+                #with open("eccSols.txt", "a") as f:
+                #    #print(day,name,ecc,sol)
+                #    f.write(day+'\t'+folder+'\t'+str(name)+'\t'+str(ecc)+'\t'+str(sol)+'\n')
 
                 with open("profiles.txt", "a") as f:
                     #print(name)
