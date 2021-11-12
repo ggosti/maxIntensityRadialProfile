@@ -83,16 +83,16 @@ radialProfile/
 │   README.md
 │   radialProfile.py  
 │
-└───apr19/
+└───Exp1/
     │   coordinates.txt
     │
-    └───M0_2/
+    └───Image1/
     |       image.tif
     |       cell1.tif
     |       cell2.tif
     |       cell3.tif
     |
-    └───M0_4/
+    └───Image1/
             image.tif
             cell2.tif
             cell3.tif

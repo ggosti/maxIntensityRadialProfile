@@ -1,0 +1,5 @@
+Image1	cell1	615	750
+Image1	cell2	1251	915
+Image1	cell3	495	1194
+Image2	cell2	626	402
+Image2	cell3	972	1158
