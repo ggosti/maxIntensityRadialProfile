@@ -105,8 +105,26 @@ The file will generate three files in the main folder: `profiles.txt` contains t
 `profiles.txt` and `profilesSmooth.txt` are organized as tab separated values tables. The first row is the header, each other row corresponds to a different cell. The first 3 columns identify respectively the experiment, the image, and the cell. The other colums in the header identify the radial profile radius, and in the cell rows the cooresponding values.
 
 
+## Citation
 
+If you find this project useful, please cite:
+> Maria Rosito, Caterina Sanchini, Giorgio Gosti, Manuela Moreno, Simone De Panfilis, 
+> Maria Giubettini, Doriana Debellis, Federico Catalano, Giovanna Peruzzi,
+> Roberto Marotta, Alessia Indrieri, Elvira De Leonibus, Davide Ragozzino,
+> Giancarlo Ruocco, Silvia Di Angelantonio, Francesca Bartolini
+> *Microglia activation and cytokine release entails microtubule remodeling from acentrosomal to centrosomal arrays*.
+> 
+
+ 
 
 ### Requirements
 - matplotlib
+https://matplotlib.org/stable/users/project/citing.html
 - scikit-image
+> Stéfan van der Walt, Johannes L. Schönberger, Juan Nunez-Iglesias,
+> François Boulogne, Joshua D. Warner, Neil Yager, Emmanuelle
+> Gouillart, Tony Yu, and the scikit-image contributors.
+> *scikit-image: Image processing in Python*. PeerJ 2:e453 (2014)
+- numpy
+https://numpy.org/citing-numpy/
+> https://doi.org/10.7717/peerj.453
