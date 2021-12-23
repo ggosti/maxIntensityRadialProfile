@@ -118,13 +118,20 @@ If you find this project useful, please cite:
  
 
 ### Requirements
-- matplotlib
-https://matplotlib.org/stable/users/project/citing.html
-- scikit-image
+- matplotlib https://matplotlib.org/
+> J. D. Hunter
+> *Matplotlib: A 2D Graphics Environment*.
+> Computing in Science & Engineering, vol. 9, no. 3, pp. 90-95 (2007)
+> https://doi.org/10.1109/MCSE.2007.55
+- scikit-image https://scikit-image.org/
 > Stéfan van der Walt, Johannes L. Schönberger, Juan Nunez-Iglesias,
 > François Boulogne, Joshua D. Warner, Neil Yager, Emmanuelle
 > Gouillart, Tony Yu, and the scikit-image contributors.
 > *scikit-image: Image processing in Python*. PeerJ 2:e453 (2014)
-- numpy
-https://numpy.org/citing-numpy/
 > https://doi.org/10.7717/peerj.453
+- numpy https://numpy.org/
+> Harris, C.R., Millman, K.J., van der Walt, S.J. et al. 
+> *Array programming with NumPy*. 
+> Nature 585, 357–362 (2020).
+> https://doi.org/10.1038/s41586-020-2649-2
+
