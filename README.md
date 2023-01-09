@@ -111,16 +111,16 @@ If you find this project useful, please cite:
 > Maria Rosito, Caterina Sanchini, Giorgio Gosti, Manuela Moreno, Simone De Panfilis, 
 > Maria Giubettini, Doriana Debellis, Federico Catalano, Giovanna Peruzzi,
 > Roberto Marotta, Alessia Indrieri, Elvira De Leonibus, Davide Ragozzino,
-> Giancarlo Ruocco, Silvia Di Angelantonio, Francesca Bartolini
-> **Microglia activation and cytokine release entails microtubule remodeling from acentrosomal to centrosomal arrays**,
-> *Cell Reports*, accepted in principle, 2023.
+> Giancarlo Ruocco, Silvia Di Angelantonio, Francesca Bartolini.
+> *Microglia activation and cytokine release entails microtubule remodeling from acentrosomal to centrosomal arrays*,
+> Cell Reports, accepted in principle, 2023.
 > 
 
  
 
 ### Requirements
 - matplotlib https://matplotlib.org/
-> J. D. Hunter
+> J. D. Hunter.
 > *Matplotlib: A 2D Graphics Environment*.
 > Computing in Science & Engineering, vol. 9, no. 3, pp. 90-95 (2007)
 > https://doi.org/10.1109/MCSE.2007.55
