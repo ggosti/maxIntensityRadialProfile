@@ -112,7 +112,8 @@ If you find this project useful, please cite:
 > Maria Giubettini, Doriana Debellis, Federico Catalano, Giovanna Peruzzi,
 > Roberto Marotta, Alessia Indrieri, Elvira De Leonibus, Davide Ragozzino,
 > Giancarlo Ruocco, Silvia Di Angelantonio, Francesca Bartolini
-> *Microglia activation and cytokine release entails microtubule remodeling from acentrosomal to centrosomal arrays*.
+> *Microglia activation and cytokine release entails microtubule remodeling from acentrosomal to centrosomal arrays*,
+> **Cell Reports**, accepted in principle, 2023.
 > 
 
  
